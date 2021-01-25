@@ -30,43 +30,43 @@ fun Date.add(value:Int, units:TimeUnits = TimeUnits.SECOND): Date {
     return this
 }
 
-fun TimeUnits.plural(value: Int): String {
-    return "$value " + when(this) {
-        TimeUnits.SECOND -> {
-            when(abs(value) % 10) {
-                1 -> "секунда"
-                in 2..4 -> "секунды"
-                else -> "секунд"
-            }
-        }
-        TimeUnits.MINUTE -> {
-            when(abs(value) % 10) {
-                1 -> "минутаа"
-                in 2..4 -> "минуты"
-                else -> "минут"
-            }
-        }
-        TimeUnits.HOUR -> {
-            when(abs(value) % 10) {
-                1 -> "час"
-                in 2..4 -> "часа"
-                else -> "часов"
-            }
-        }
-        TimeUnits.DAY -> {
-            when(abs(value) % 10) {
-                1 -> "день"
-                in 2..4 -> "дня"
-                else -> "дней"
-            }
-        }
-    }
-}
-
-
 enum class TimeUnits {
     SECOND,
     MINUTE,
     HOUR,
-    DAY
+    DAY;
+
+    fun plural(value: Int): String {
+        return "$value " + when(this) {
+            TimeUnits.SECOND -> {
+                when(abs(value) % 10) {
+                    1 -> "секунда"
+                    in 2..4 -> "секунды"
+                    else -> "секунд"
+                }
+            }
+            TimeUnits.MINUTE -> {
+                when(abs(value) % 10) {
+                    1 -> "минутаа"
+                    in 2..4 -> "минуты"
+                    else -> "минут"
+                }
+            }
+            TimeUnits.HOUR -> {
+                when(abs(value) % 10) {
+                    1 -> "час"
+                    in 2..4 -> "часа"
+                    else -> "часов"
+                }
+            }
+            TimeUnits.DAY -> {
+                when(abs(value) % 10) {
+                    1 -> "день"
+                    in 2..4 -> "дня"
+                    else -> "дней"
+                }
+            }
+        }
+    }
+
 }
