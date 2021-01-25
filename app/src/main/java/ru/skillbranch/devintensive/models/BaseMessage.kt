@@ -18,8 +18,8 @@ abstract class BaseMessage(
             lastId++
 
             return when(type) {
-                "Image" -> ImageMessage("$lastId", from = from, chat = chat, date = date, image = payload as String)
-                "Text" -> TextMessage("$lastId", from = from, chat = chat, date = date, text = payload as String)
+                "image" -> ImageMessage("$lastId", from = from, chat = chat, date = date, image = payload as String)
+                "text" -> TextMessage("$lastId", from = from, chat = chat, date = date, text = payload as String)
                 else -> throw IllegalStateException("Invalid message type")
             }
         }

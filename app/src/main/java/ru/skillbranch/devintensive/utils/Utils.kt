@@ -59,21 +59,22 @@ object Utils {
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
-        var firstPart = firstName?.getOrNull(0)?.toUpperCase()?.toString()
-        var secondPart = lastName?.getOrNull(0)?.toUpperCase()?.toString()
+        var firstPart = firstName?.trim()?.getOrNull(0)?.toUpperCase()
+        var secondPart = lastName?.trim()?.getOrNull(0)?.toUpperCase()
 
-        firstPart = if(firstPart?.matches("\\S*".toRegex()) == true) firstPart else null
-        secondPart = if(secondPart?.matches("\\S*".toRegex()) == true) secondPart else null
-
-        var result:String? = null
-
+        var result: String? = null
         if((firstPart != null) or (secondPart != null)) {
             result = ""
         }
 
-        result += firstPart ?: ""
-        result += secondPart ?: ""
+        if(firstPart != null) {
+            result += firstPart
+        }
 
+
+        if(secondPart != null) {
+            result += secondPart
+        }
 
         return result
     }
